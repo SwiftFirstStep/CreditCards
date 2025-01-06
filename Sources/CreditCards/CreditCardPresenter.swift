@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 // MARK: - Presenter
-protocol CreditCardPresenterProtocol: ObservableObject {
+public protocol CreditCardPresenterProtocol: ObservableObject {
     var creditCards: [CreditCard] { get }
     var newCardHolderName: String { get set }
     var newCardNumber: String { get set }
@@ -23,15 +23,15 @@ protocol CreditCardPresenterProtocol: ObservableObject {
     func autoFormatExpiryDate(_ expiry: inout String)
 }
 
-class CreditCardPresenter: CreditCardPresenterProtocol {
-    @Published private(set) var creditCards: [CreditCard] = []
-    @Published var newCardHolderName: String = ""
-    @Published var newCardNumber: String = ""
-    @Published var newExpiryDate: String = ""
-    @Published var newCVV: String = ""
-    @Published var cardType: String = ""
-    @Published var gradientColors = [Color.gray, Color.black]
-    @Published private(set) var isAddCardButtonEnabled: Bool = false
+public class CreditCardPresenter: CreditCardPresenterProtocol {
+    @Published private(set) public var creditCards: [CreditCard] = []
+    @Published public var newCardHolderName: String = ""
+    @Published public var newCardNumber: String = ""
+    @Published public var newExpiryDate: String = ""
+    @Published public var newCVV: String = ""
+    @Published public var cardType: String = ""
+    @Published public var gradientColors = [Color.gray, Color.black]
+    @Published private(set) public var isAddCardButtonEnabled: Bool = false
 
     private var interactor: CreditCardInteractorProtocol
     private var cancellables = Set<AnyCancellable>()
@@ -58,7 +58,7 @@ class CreditCardPresenter: CreditCardPresenterProtocol {
 
 
 
-    func addCreditCard() {
+    public func addCreditCard() {
         let gradientColors: [Color]
         switch cardType {
         case "Visa":
@@ -89,7 +89,7 @@ class CreditCardPresenter: CreditCardPresenterProtocol {
     }
 
 
-    func updateCardType(for number: String) {
+    public func updateCardType(for number: String) {
         let prefix = String(number.prefix(4).replacingOccurrences(of: " ", with: ""))
         switch prefix {
         case "1111":
@@ -114,7 +114,7 @@ class CreditCardPresenter: CreditCardPresenterProtocol {
         }
     }
 
-    func autoFormatCardNumber(_ number: inout String) {
+    public func autoFormatCardNumber(_ number: inout String) {
         number = number.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
         number = stride(from: 0, to: number.count, by: 4).map {
             let start = number.index(number.startIndex, offsetBy: $0)
@@ -123,7 +123,7 @@ class CreditCardPresenter: CreditCardPresenterProtocol {
         }.joined(separator: " ")
     }
 
-    func autoFormatExpiryDate(_ expiry: inout String) {
+    public func autoFormatExpiryDate(_ expiry: inout String) {
         expiry = expiry.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
         if expiry.count > 2 {
             expiry.insert("/", at: expiry.index(expiry.startIndex, offsetBy: 2))

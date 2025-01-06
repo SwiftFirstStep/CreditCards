@@ -9,8 +9,8 @@ import SwiftUI
 import Combine
 
 // MARK: - Entity
-struct CreditCard: Identifiable {
-    let id = UUID()
+public struct CreditCard: Identifiable {
+    public let id = UUID()
     let cardHolderName: String
     let cardNumber: String
     let expiryDate: String
@@ -25,8 +25,8 @@ protocol CreditCardInteractorProtocol {
     func validateCardDetails(name: String, number: String, expiry: String, cvv: String, type: String) -> Bool
 }
 
-class CreditCardInteractor: CreditCardInteractorProtocol {
-    func fetchCreditCards() -> [CreditCard] {
+public class CreditCardInteractor: CreditCardInteractorProtocol {
+    public func fetchCreditCards() -> [CreditCard] {
         return [
             CreditCard(
                 cardHolderName: "John Doe",
@@ -47,7 +47,7 @@ class CreditCardInteractor: CreditCardInteractorProtocol {
         ]
     }
 
-    func validateCardDetails(name: String, number: String, expiry: String, cvv: String, type: String) -> Bool {
+    public func validateCardDetails(name: String, number: String, expiry: String, cvv: String, type: String) -> Bool {
         return !name.isEmpty && number.count == 19 && expiry.contains("/") && cvv.count == 3 && !type.isEmpty
     }
 }

@@ -1,11 +1,11 @@
 import SwiftUI
 
 // MARK: - Views
-struct CreditCardListView: View {
+public struct CreditCardListView: View {
     @StateObject private var presenter = CreditCardPresenter(interactor: CreditCardInteractor())
     @State private var showAddCardDrawer = false
 
-    var body: some View {
+    public var body: some View {
             VStack {
                 ScrollView {
                     VStack(spacing: 20) {
@@ -37,7 +37,7 @@ struct CreditCardListView: View {
     }
 }
 
-struct AddCreditCardView: View {
+public struct AddCreditCardView: View {
     @ObservedObject var presenter: CreditCardPresenter
     @Binding var showAddCardDrawer: Bool
     //
@@ -50,7 +50,7 @@ struct AddCreditCardView: View {
     var years = Array(24...34) // Example: 2024-2034, using 2-digit format
     //
 
-    var body: some View {
+    public var body: some View {
         NavigationView {
             ScrollView(){
             VStack(spacing: 20) {

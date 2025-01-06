@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct CreditCardView: View {
+public struct CreditCardView: View {
     let card: CreditCard
 
-    var body: some View {
+    public var body: some View {
         ZStack {
             LinearGradient(
                 gradient: Gradient(colors: card.gradientColors),

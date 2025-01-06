@@ -8,7 +8,7 @@
 import SwiftUI
 
 // MARK: - Router
-struct CreditCardRouter {
+public struct CreditCardRouter {
     static func makeAddCreditCardView(presenter: CreditCardPresenter, showAddCardDrawer: Binding<Bool>) -> some View {
         AddCreditCardView(presenter: presenter, showAddCardDrawer: showAddCardDrawer)
     }
