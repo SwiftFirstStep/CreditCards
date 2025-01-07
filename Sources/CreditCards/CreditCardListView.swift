@@ -2,8 +2,8 @@ import SwiftUI
 
 // MARK: - Views
 public struct CreditCardListView: View {
-    @StateObject private var presenter = CreditCardPresenter(interactor: CreditCardInteractor())
-    @State private var showAddCardDrawer = false
+    @StateObject public var presenter = CreditCardPresenter(interactor: CreditCardInteractor())
+    @State public var showAddCardDrawer = false
 
     public var body: some View {
             VStack {
