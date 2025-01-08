@@ -130,8 +130,6 @@ public struct AddCreditCardView: View {
                                     default:
                                         break
                                     }
-
-                                    
                                     // Assign the validated and formatted value
                                     presenter.newExpiryDate = mutableValue
                                 }
@@ -203,7 +201,6 @@ public struct AddCreditCardView: View {
                         presenter.newCardHolderName = String(value.prefix(21))
                     }
                 
-                
                 Button(action: {
                     presenter.addCreditCard()
                     showAddCardDrawer = false // Close the sheet after adding the card
@@ -218,7 +215,6 @@ public struct AddCreditCardView: View {
                         .padding(.horizontal)
                 }
                 .disabled(!presenter.isAddCardButtonEnabled)
-                
                 Spacer()
             }
             .navigationTitle("Activate Credit Card")
