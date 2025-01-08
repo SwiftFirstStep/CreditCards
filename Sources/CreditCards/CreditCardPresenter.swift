@@ -36,7 +36,7 @@ public class CreditCardPresenter: CreditCardPresenterProtocol {
     private var interactor: CreditCardInteractorProtocol
     private var cancellables = Set<AnyCancellable>()
 
-    init(interactor: CreditCardInteractorProtocol) {
+    public init(interactor: CreditCardInteractorProtocol) {
         self.interactor = interactor
         setupBindings()
         creditCards = interactor.fetchCreditCards()

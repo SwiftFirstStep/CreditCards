@@ -17,7 +17,7 @@ protocol CreditCardInteractorProtocol {
 public class CreditCardInteractor: CreditCardInteractorProtocol {
     private let repository: CreditCardRepositoryProtocol
 
-    init(repository: CreditCardRepositoryProtocol) {
+    public init(repository: CreditCardRepositoryProtocol) {
         self.repository = repository
     }
 

@@ -15,6 +15,7 @@ protocol CreditCardRepositoryProtocol {
 
 // MARK: - Repository Implementation
 public class CreditCardRepository: CreditCardRepositoryProtocol {
+    public init() {}
     public func getCreditCards() -> [CreditCard] {
         return [
             CreditCard(
