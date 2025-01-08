@@ -137,5 +137,23 @@ public class CreditCardPresenter: CreditCardPresenterProtocol {
         newCVV = ""
         cardType = ""
     }
+    
+    //
+    func updateCardNumber(_ value: String) {
+        var mutableValue = value
+        interactor.validateAndFormatCardNumber(&mutableValue)
+        newCardNumber = mutableValue
+    }
+
+    func updateExpiryDate(_ value: String) {
+        var mutableValue = value
+        interactor.validateExpiryDate(&mutableValue)
+        newExpiryDate = mutableValue
+    }
+    
+    func addCreditCard2() {
+        // Logic to add credit card
+        isAddCardButtonEnabled = !newCardNumber.isEmpty && !newExpiryDate.isEmpty && !newCVV.isEmpty
+    }
 }
 

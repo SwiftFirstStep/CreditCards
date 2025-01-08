@@ -12,4 +12,9 @@ public struct CreditCardRouter {
     static func makeAddCreditCardView(presenter: CreditCardPresenter, showAddCardDrawer: Binding<Bool>) -> some View {
         AddCreditCardView(presenter: presenter, showAddCardDrawer: showAddCardDrawer)
     }
+    
+    func dismissAddCardView(_ show: inout Bool) {
+        show = false
+    }
+
 }
