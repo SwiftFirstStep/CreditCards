@@ -2,10 +2,12 @@ import SwiftUI
 
 // MARK: - Views
 public struct CreditCardListView: View {
-    @StateObject public var presenter = CreditCardPresenter(interactor: CreditCardInteractor())
     @State public var showAddCardDrawer = false
+    @ObservedObject public var presenter: CreditCardPresenter
     
-    public init() {}
+    public init(presenter: CreditCardPresenter) {
+        self.presenter = presenter
+    }
 
     public var body: some View {
             VStack {
@@ -44,8 +46,8 @@ extension Notification.Name {
 }
 
 // MARK: - Preview
-struct CreditCardListView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreditCardListView()
-    }
-}
+//struct CreditCardListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CreditCardListView()
+//    }
+//}

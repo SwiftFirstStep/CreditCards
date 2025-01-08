@@ -8,17 +8,6 @@
 import SwiftUI
 import Combine
 
-// MARK: - Entity
-public struct CreditCard: Identifiable {
-    public let id = UUID()
-    let cardHolderName: String
-    let cardNumber: String
-    let expiryDate: String
-    let cvv: String
-    let cardType: String
-    let gradientColors: [Color]
-}
-
 // MARK: - Interactor
 protocol CreditCardInteractorProtocol {
     func fetchCreditCards() -> [CreditCard]
@@ -26,25 +15,14 @@ protocol CreditCardInteractorProtocol {
 }
 
 public class CreditCardInteractor: CreditCardInteractorProtocol {
+    private let repository: CreditCardRepositoryProtocol
+
+    init(repository: CreditCardRepositoryProtocol) {
+        self.repository = repository
+    }
+
     public func fetchCreditCards() -> [CreditCard] {
-        return [
-            CreditCard(
-                cardHolderName: "John Doe",
-                cardNumber: "1234 5678 9012 3456",
-                expiryDate: "12/25",
-                cvv: "123",
-                cardType: "Visa",
-                gradientColors: [Color.blue, Color.purple]
-            ),
-            CreditCard(
-                cardHolderName: "Jane Smith",
-                cardNumber: "9876 5432 1098 7654",
-                expiryDate: "11/28",
-                cvv: "456",
-                cardType: "MasterCard",
-                gradientColors: [Color.orange, Color.red]
-            )
-        ]
+        return repository.getCreditCards()
     }
 
     public func validateCardDetails(name: String, number: String, expiry: String, cvv: String, type: String) -> Bool {
