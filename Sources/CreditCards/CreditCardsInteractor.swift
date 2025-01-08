@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 // MARK: - Interactor
-protocol CreditCardInteractorProtocol {
+public protocol CreditCardInteractorProtocol {
     func fetchCreditCards() -> [CreditCard]
     func validateCardDetails(name: String, number: String, expiry: String, cvv: String, type: String) -> Bool
 }

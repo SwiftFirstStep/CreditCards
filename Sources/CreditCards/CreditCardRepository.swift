@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 // MARK: - Repository Protocol
-protocol CreditCardRepositoryProtocol {
+public protocol CreditCardRepositoryProtocol {
     func getCreditCards() -> [CreditCard]
 }
 
