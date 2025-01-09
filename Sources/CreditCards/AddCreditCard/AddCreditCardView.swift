@@ -20,7 +20,6 @@ public struct AddCreditCardView: View {
         NavigationView {
             ScrollView(){
                 VStack(spacing: 20) {
-                    
                     if !presenter.newCardNumber.isEmpty {
                         CreditCardView(
                             card: CreditCard(
@@ -105,7 +104,7 @@ public struct AddCreditCardView: View {
                         .padding(.horizontal)
                         .keyboardType(.numberPad)
                         .onChange(of: presenter.newCVV) { value in
-                            presenter.newCVV = String(value.filter { $0.isNumber }.prefix(3))
+                            presenter.updateNewCVV(value: value)
                         }
                     
                     TextField("Card Type", text: $presenter.cardType)
@@ -117,8 +116,7 @@ public struct AddCreditCardView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal)
                         .onChange(of: presenter.newCardHolderName) { value in
-                            // Limit the input to 51 characters
-                            presenter.newCardHolderName = String(value.prefix(21))
+                            presenter.updateNewCardHolderName(value: value)
                         }
                     
                     Button(action: {

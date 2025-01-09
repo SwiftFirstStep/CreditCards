@@ -213,6 +213,15 @@ public class CreditCardPresenter: CreditCardPresenterProtocol {
         updateCardType(for: mutableValue)
     }
     
+    public func updateNewCVV(value: String){
+        newCVV = String(value.filter { $0.isNumber }.prefix(3))
+    }
+    
+    public func updateNewCardHolderName(value: String){
+        // Limit the input to 51 characters
+        newCardHolderName = String(value.prefix(21))
+    }
+    
     private func clearForm() {
         newCardHolderName = ""
         newCardNumber = ""
