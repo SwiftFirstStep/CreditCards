@@ -13,22 +13,20 @@ public struct CreditCardListView: View {
 
     public var body: some View {
         VStack {
-            ScrollView {
-                VStack(spacing: 20) {
-                    ForEach(presenter.creditCards) { card in
-                        CreditCardView(card: card)
-                            .swipeActions {
-                                Button(role: .destructive) {
-                                    cardToDelete = card
-                                    showAlert = true
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
+            List {
+                ForEach(presenter.creditCards) { card in
+                    CreditCardView(card: card)
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                cardToDelete = card
+                                showAlert = true
+                            } label: {
+                                Label("Delete", systemImage: "trash")
                             }
-                    }
+                        }
                 }
-                .padding(.vertical)
             }
+            .listStyle(PlainListStyle())
 
             Button(action: {
                 showAddCardDrawer.toggle()
