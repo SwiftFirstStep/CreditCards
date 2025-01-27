@@ -231,3 +231,10 @@ public class CreditCardPresenter: CreditCardPresenterProtocol {
     }
 }
 
+extension CreditCardPresenter {
+    public func deleteCard(_ card: CreditCard) {
+        if let index = creditCards.firstIndex(where: { $0.id == card.id }) {
+            creditCards.remove(at: index)
+        }
+    }
+}
