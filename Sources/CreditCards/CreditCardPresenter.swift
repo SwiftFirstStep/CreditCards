@@ -34,7 +34,7 @@ public class CreditCardPresenter: CreditCardPresenterProtocol {
     @Published private(set) public var isAddCardButtonEnabled: Bool = false
     
     var months = Array(1...12)
-    var years = Array(24...34)
+    var years = Array(25...34)
     
     private var interactor: CreditCardInteractorProtocol
     private var cancellables = Set<AnyCancellable>()
