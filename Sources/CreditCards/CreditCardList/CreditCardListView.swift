@@ -81,7 +81,7 @@ public struct CreditCardDetailsView: View {
                 .font(.largeTitle)
                 .padding(.top)
 
-            Text(card.name)
+            Text(card.cardNumber)
                 .font(.title2)
                 .padding(.bottom, 10)
 
@@ -121,7 +121,7 @@ public struct CreditCardDetailsView: View {
             Spacer()
         }
         .padding()
-        .navigationTitle(card.name)
+        .navigationTitle(card.cardNumber)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
